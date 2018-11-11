@@ -5,6 +5,9 @@ import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // components
 import Navbar from './components/layout/Navbar';
 import Index from './components/layout/Index';
+import Lyrics from './components/tracks/Lyrics';
+
+import {Provider} from './context';
 
 // stylesheet
 import './App.css';
@@ -12,16 +15,19 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <Router>
-        <React.Fragment>
-          <Navbar/>
-          <div className="countainer">
-            <Switch>
-              <Route exact path="/" component={Index}/>
-            </Switch>
-          </div>
-        </React.Fragment>
-      </Router>
+      <Provider>
+          <Router>
+              <React.Fragment>
+                  <Navbar/>
+                  <div className="countainer">
+                      <Switch>
+                          <Route exact path="/" component={Index}/>
+                          <Route exact path="/lyrics/track/:id" component={Lyrics}/>
+                      </Switch>
+                  </div>
+              </React.Fragment>
+          </Router>
+      </Provider>
     );
   }
 }
