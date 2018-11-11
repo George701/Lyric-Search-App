@@ -9,7 +9,7 @@ class Tracks extends Component{
             <Consumer>
                 {
                     value => {
-                        console.log(value);
+                        // console.log(value);
                         const {track_list, heading} = value;
                         if(track_list === undefined || track_list === 0 || Object.keys(track_list).length === 0){
                             return (
